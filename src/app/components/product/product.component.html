@@ -1,5 +1,24 @@
-<h2>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, laborum
-  facere. Dicta dolores, atque vel eum incidunt iusto exercitationem praesentium
-  tempore sit maiores, rem labore sint quod soluta accusamus molestiae.
-</h2>
+<nz-card nzHoverable class="product-card">
+  <div class="image-wrapper">
+    <img [src]="product.image" [alt]="product.title" class="product-image" />
+  </div>
+
+  <div class="product-title">{{ product.title }}</div>
+  <div class="product-price">Price: {{ product.price | currency }}</div>
+
+  <button nz-button nzType="link" (click)="details = !details">
+    {{ details ? "Скрыть описание" : "Показать описание" }}
+  </button>
+
+  <div *ngIf="details" class="product-description">
+    <p class="description-text">{{ product.description }}</p>
+    <div class="rating-wrapper">
+      <nz-rate
+        [ngModel]="product.rating.rate"
+        [nzDisabled]="true"
+        nzAllowHalf
+      ></nz-rate>
+      <span class="rating-count">({{ product.rating.count }} reviews)</span>
+    </div>
+  </div>
+</nz-card>

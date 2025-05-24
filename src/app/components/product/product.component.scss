@@ -1,0 +1,65 @@
+.product-card {
+  width: 100%;
+  max-width: 300px;
+  margin: 16px auto;
+  padding: 16px;
+}
+
+.image-wrapper {
+  text-align: center;
+}
+
+.product-image {
+  display: block;
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.product-title {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.product-price {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #1890ff;
+}
+
+button[nz-button] {
+  display: block;
+  margin: 12px auto;
+}
+
+.product-description {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.description-text {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.rating-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nz-rate {
+  font-size: 1.2rem; /* увеличим размер звёзд */
+}
+
+.rating-count {
+  margin-left: 8px;
+  font-size: 0.85rem;
+  color: rgba(0, 0, 0, 0.65);
+}

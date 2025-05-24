@@ -12,6 +12,12 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideHttpClient } from '@angular/common/http';
 
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzRateModule } from 'ng-zorro-antd/rate';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 
 import { ProductComponent } from './components/product/product.component';
 
@@ -19,7 +25,18 @@ registerLocaleData(en);
 
 @NgModule({
   declarations: [AppComponent, ProductComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, NzTypographyModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    NzTypographyModule,
+    NzGridModule,
+    NzCardModule,
+    NzAvatarModule,
+    NzDividerModule,
+    NzRateModule,
+    NzButtonModule,
+  ],
   providers: [
     provideNzI18n(en_US),
     provideAnimationsAsync(),
