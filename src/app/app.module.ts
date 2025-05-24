@@ -13,10 +13,12 @@ import { provideHttpClient } from '@angular/common/http';
 
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
 
+import { ProductComponent } from './components/product/product.component';
+
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ProductComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, NzTypographyModule],
   providers: [
     provideNzI18n(en_US),
