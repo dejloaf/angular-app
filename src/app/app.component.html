@@ -1,6 +1,16 @@
+<app-global-error></app-global-error>
+
 <div class="container">
   <h1>{{ title | titlecase }}</h1>
 
-  <app-product [product]="products[0]"> </app-product>
-  <app-product [product]="products[1]"> </app-product>
+  <nz-spin
+    [nzSpinning]="loading"
+    nzTip="Загрузка товаров..."
+    style="display: block; padding: 40px 0"
+  >
+    <app-product
+      *ngFor="let product of products$ | async; let i = index"
+      [product]="product"
+    ></app-product>
+  </nz-spin>
 </div>

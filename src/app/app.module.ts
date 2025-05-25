@@ -9,7 +9,12 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideHttpClient } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzGridModule } from 'ng-zorro-antd/grid';
@@ -18,13 +23,16 @@ import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzRateModule } from 'ng-zorro-antd/rate';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { NzAlertComponent } from 'ng-zorro-antd/alert';
 
 import { ProductComponent } from './components/product/product.component';
+import { GlobalErrorComponent } from './components/global-error/global-error.component';
 
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [AppComponent, ProductComponent],
+  declarations: [AppComponent, ProductComponent, GlobalErrorComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -36,11 +44,13 @@ registerLocaleData(en);
     NzDividerModule,
     NzRateModule,
     NzButtonModule,
+    NzSpinModule,
+    NzAlertComponent,
   ],
   providers: [
     provideNzI18n(en_US),
     provideAnimationsAsync(),
-    provideHttpClient(),
+    provideHttpClient(withInterceptorsFromDi()),
   ],
   bootstrap: [AppComponent],
 })

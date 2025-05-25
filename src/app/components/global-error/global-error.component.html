@@ -1,0 +1,9 @@
+<nz-alert
+  *ngIf="errorService.error$ | async as error"
+  nzType="error"
+  [nzMessage]="error"
+  nzShowIcon
+  nzBanner
+  nzCloseable
+  (nzOnClose)="errorService.clear()"
+></nz-alert>
