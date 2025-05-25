@@ -25,14 +25,18 @@ import { NzRateModule } from 'ng-zorro-antd/rate';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzAlertComponent } from 'ng-zorro-antd/alert';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 import { ProductComponent } from './components/product/product.component';
 import { GlobalErrorComponent } from './components/global-error/global-error.component';
+import { FilterProductsPipe } from './pipes/filter-products.pipe';
+import { ModalComponent } from './components/modal/modal.component';
 
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [AppComponent, ProductComponent, GlobalErrorComponent],
+  declarations: [AppComponent, ProductComponent, GlobalErrorComponent, FilterProductsPipe, ModalComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -46,6 +50,8 @@ registerLocaleData(en);
     NzButtonModule,
     NzSpinModule,
     NzAlertComponent,
+    NzInputModule,
+    NzIconModule,
   ],
   providers: [
     provideNzI18n(en_US),

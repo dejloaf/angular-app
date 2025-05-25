@@ -3,14 +3,28 @@
 <div class="container">
   <h1>{{ title | titlecase }}</h1>
 
+  <nz-input-group [nzSuffix]="suffixIconSearch">
+    <input
+      type="text"
+      nz-input
+      placeholder="input search text"
+      [(ngModel)]="term"
+    />
+  </nz-input-group>
+  <ng-template #suffixIconSearch>
+    <nz-icon nzType="search" />
+  </ng-template>
+
   <nz-spin
     [nzSpinning]="loading"
     nzTip="Загрузка товаров..."
     style="display: block; padding: 40px 0"
   >
-    <app-product
-      *ngFor="let product of products$ | async; let i = index"
-      [product]="product"
-    ></app-product>
+    <div *ngIf="products$ | async as products">
+      <app-product
+        *ngFor="let product of products | filterProducts : term; let i = index"
+        [product]="product"
+      ></app-product>
+    </div>
   </nz-spin>
 </div>
