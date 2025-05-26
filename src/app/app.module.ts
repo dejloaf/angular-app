@@ -31,12 +31,19 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { ProductComponent } from './components/product/product.component';
 import { GlobalErrorComponent } from './components/global-error/global-error.component';
 import { FilterProductsPipe } from './pipes/filter-products.pipe';
-import { ModalComponent } from './components/modal/modal.component';
+import { NzModalComponent } from 'ng-zorro-antd/modal';
+import { CreateProductComponent } from './components/create-product/create-product.component';
 
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [AppComponent, ProductComponent, GlobalErrorComponent, FilterProductsPipe, ModalComponent],
+  declarations: [
+    AppComponent,
+    ProductComponent,
+    GlobalErrorComponent,
+    FilterProductsPipe,
+    CreateProductComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -52,6 +59,7 @@ registerLocaleData(en);
     NzAlertComponent,
     NzInputModule,
     NzIconModule,
+    NzModalComponent,
   ],
   providers: [
     provideNzI18n(en_US),
