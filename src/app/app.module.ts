@@ -10,8 +10,6 @@ import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {
-  HttpClient,
-  HttpClientModule,
   provideHttpClient,
   withInterceptorsFromDi,
 } from '@angular/common/http';
@@ -32,7 +30,7 @@ import { ProductComponent } from './components/product/product.component';
 import { GlobalErrorComponent } from './components/global-error/global-error.component';
 import { FilterProductsPipe } from './pipes/filter-products.pipe';
 import { NzModalComponent } from 'ng-zorro-antd/modal';
-import { CreateProductComponent } from './components/create-product/create-product.component';
+import { ProductsTableComponent } from './components/products-table/products-table.component';
 
 registerLocaleData(en);
 
@@ -42,7 +40,7 @@ registerLocaleData(en);
     ProductComponent,
     GlobalErrorComponent,
     FilterProductsPipe,
-    CreateProductComponent,
+    ProductsTableComponent,
   ],
   imports: [
     BrowserModule,
