@@ -1,32 +1,12 @@
-<!-- <app-global-error></app-global-error>
-
-<div class="container">
-  <h1>{{ title | titlecase }}</h1>
-
-  <nz-input-group [nzSuffix]="suffixIconSearch">
-    <input
-      type="text"
-      nz-input
-      placeholder="input search text"
-      [(ngModel)]="term"
-    />
-  </nz-input-group>
-  <ng-template #suffixIconSearch>
-    <nz-icon nzType="search" />
-  </ng-template>
-
-  <nz-spin
-    [nzSpinning]="loading"
-    nzTip="Загрузка товаров..."
-    style="display: block; padding: 40px 0"
-  >
-    <div *ngIf="products$ | async as products">
-      <app-product
-        *ngFor="let product of products | filterProducts : term; let i = index"
-        [product]="product"
-      ></app-product>
+<nz-layout class="app-layout">
+  <app-global-error></app-global-error>
+  <nz-header class="app-header">
+    <h1 nz-typography style="margin: 0">Testshop</h1>
+  </nz-header>
+  <nz-content class="app-content">
+    <div class="page-container">
+      <router-outlet></router-outlet>
     </div>
-  </nz-spin>
-</div> -->
-
-<router-outlet></router-outlet>
+  </nz-content>
+  <nz-footer class="app-footer">2025 TestShop</nz-footer>
+</nz-layout>

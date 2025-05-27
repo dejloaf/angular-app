@@ -1,11 +1,35 @@
-.container {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 0 16px;
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-h1 {
+.app-header {
   text-align: center;
-  margin: 10px 0;
+  border: 1px solid rgba(0, 0, 0, 0.084);
+  flex: 0 0 auto;
+  background: #ffffff;
+}
+
+.app-footer {
+  flex: 0 0 auto;
+  text-align: center;
+  background: #fff;
+}
+
+.app-content {
+  flex: 1 0 auto;
+  padding: 24px;
+  background: #fff;
+  overflow: auto;
+}
+
+.page-container {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.084);
+  border-radius: 3px;
+  padding: 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }

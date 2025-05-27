@@ -18,10 +18,16 @@ export class ProductsService {
     return this.http
       .get<IProduct[]>('https://fakestoreapi.com/products', {
         params: new HttpParams({
-          fromObject: { limit: 5 },
+          fromObject: {},
         }),
       })
       .pipe(delay(200), retry(2), catchError(this.errorHandler.bind(this)));
+  }
+
+  getById(id: number): Observable<IProduct> {
+    return this.http
+      .get<IProduct>(`https://fakestoreapi.com/products/${id}`)
+      .pipe(catchError(this.errorHandler.bind(this)));
   }
 
   private errorHandler(error: HttpErrorResponse) {

@@ -1,3 +1,13 @@
-<nz-spin [nzSpinning]="loading" nzTip="Загрузка товаров...">
-  <div #table></div>
-</nz-spin>
+<nz-page-header nzTitle="Список товаров"></nz-page-header>
+
+<nz-spin
+  [nzSpinning]="loading"
+  nzTip="Загрузка товаров..."
+  style="margin: 24px 0; width: 100%"
+></nz-spin>
+
+<div
+  #table
+  style="min-height: min-content"
+  [style.opacity]="loading ? 0.5 : 1"
+></div>

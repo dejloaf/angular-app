@@ -1,24 +1,39 @@
-<nz-card nzHoverable class="product-card">
-  <div class="image-wrapper">
-    <img [src]="product.image" [alt]="product.title" class="product-image" />
-  </div>
+<nz-spin
+  *ngIf="loading"
+  [nzSpinning]="true"
+  nzTip="Загрузка товара..."
+  style="display: block; padding: 120px"
+></nz-spin>
 
-  <div class="product-title">{{ product.title }}</div>
-  <div class="product-price">Price: {{ product.price | currency }}</div>
-
-  <button nz-button nzType="link" (click)="details = !details">
-    {{ details ? "Скрыть описание" : "Показать описание" }}
-  </button>
-
-  <div *ngIf="details" class="product-description">
-    <p class="description-text">{{ product.description }}</p>
-    <div class="rating-wrapper">
-      <nz-rate
-        [ngModel]="product.rating.rate"
-        [nzDisabled]="true"
-        nzAllowHalf
-      ></nz-rate>
-      <span class="rating-count">({{ product.rating.count }} reviews)</span>
-    </div>
+<nz-card *ngIf="!loading && product" style="max-width: 1200px; margin: 0 auto">
+  <nz-row nzGutter="16">
+    <nz-col nzSpan="10">
+      <img
+        nz-image
+        [nzSrc]="product.image"
+        nzPreview
+        [alt]="product.title"
+        width="100%"
+      />
+    </nz-col>
+    <nz-col nzSpan="14">
+      <h2>{{ product.title }}</h2>
+      <p><strong>Категория:</strong> {{ product.category }}</p>
+      <p><strong>Цена:</strong> ${{ product.price }}</p>
+      <p><strong>Описание:</strong></p>
+      <p>{{ product.description }}</p>
+      <p>
+        <strong>Рейтинг:</strong>
+        <nz-rate [ngModel]="product.rating.rate" [nzDisabled]="true"> </nz-rate>
+        ({{ product.rating.count }} отзывов)
+      </p>
+    </nz-col>
+  </nz-row>
+  <div style="text-align: center; margin: 16px 0">
+    <button nz-button nzType="default" (click)="goBack()">Назад</button>
   </div>
 </nz-card>
+
+<p *ngIf="!loading && !product" style="text-align: center; margin-top: 40px">
+  Товар не найден
+</p>

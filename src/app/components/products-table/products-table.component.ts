@@ -48,7 +48,7 @@ export class ProductsTableComponent implements OnInit, AfterViewInit {
       data: [],
       layout: 'fitColumns',
       pagination: 'local',
-      paginationSize: 5,
+      paginationSize: 8,
       placeholder: 'Нет данных',
       columns: [
         { title: 'ID', field: 'id', width: 60 },

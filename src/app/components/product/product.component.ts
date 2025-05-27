@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IProduct } from '../../models/product';
+import { ActivatedRoute } from '@angular/router';
+import { ProductsService } from '../../services/products.service';
 
 @Component({
   selector: 'app-product',
@@ -7,12 +9,29 @@ import { IProduct } from '../../models/product';
   styleUrl: './product.component.scss',
   standalone: false,
 })
-export class ProductComponent {
-  @Input() product: IProduct;
+export class ProductComponent implements OnInit {
+  loading = true;
+  product?: IProduct;
 
-  details = false;
+  constructor(
+    private route: ActivatedRoute,
+    private productsService: ProductsService
+  ) {}
 
-  toggleDescription(): void {
-    this.details = !this.details;
+  ngOnInit(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.productsService.getById(id).subscribe({
+      next: (data) => {
+        this.product = data;
+        this.loading = false;
+      },
+      error: () => {
+        this.loading = false;
+      },
+    });
+  }
+
+  goBack(): void {
+    window.history.back();
   }
 }

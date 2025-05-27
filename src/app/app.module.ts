@@ -28,9 +28,20 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 
 import { ProductComponent } from './components/product/product.component';
 import { GlobalErrorComponent } from './components/global-error/global-error.component';
-import { FilterProductsPipe } from './pipes/filter-products.pipe';
 import { NzModalComponent } from 'ng-zorro-antd/modal';
 import { ProductsTableComponent } from './components/products-table/products-table.component';
+import {
+  NzContentComponent,
+  NzFooterComponent,
+  NzHeaderComponent,
+  NzLayoutComponent,
+} from 'ng-zorro-antd/layout';
+import { NzPageHeaderComponent } from 'ng-zorro-antd/page-header';
+import {
+  NzBreadCrumbComponent,
+  NzBreadCrumbItemComponent,
+} from 'ng-zorro-antd/breadcrumb';
+import { NzImageModule } from 'ng-zorro-antd/image';
 
 registerLocaleData(en);
 
@@ -39,7 +50,6 @@ registerLocaleData(en);
     AppComponent,
     ProductComponent,
     GlobalErrorComponent,
-    FilterProductsPipe,
     ProductsTableComponent,
   ],
   imports: [
@@ -58,6 +68,14 @@ registerLocaleData(en);
     NzInputModule,
     NzIconModule,
     NzModalComponent,
+    NzLayoutComponent,
+    NzHeaderComponent,
+    NzContentComponent,
+    NzFooterComponent,
+    NzPageHeaderComponent,
+    NzBreadCrumbComponent,
+    NzBreadCrumbItemComponent,
+    NzImageModule,
   ],
   providers: [
     provideNzI18n(en_US),
